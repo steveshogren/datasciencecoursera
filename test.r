@@ -28,3 +28,24 @@ heisenbeg <- read.csv(file="simple.csv",head=TRUE,sep=",")
 #        3rd Qu.:10.38   3rd Qu.:12.75  
 #        Max.   :11.00   Max.   :14.00  
 
+x <- matrix(1:4, 2, 2); y <- matrix(rep(10, 4), 2, 2)
+## > x
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+## > y
+##      [,1] [,2]
+## [1,]   10   10
+## [2,]   10   10
+
+# Mulitplication on matrixes
+## > x * y
+##      [,1] [,2]
+## [1,]   10   30
+## [2,]   20   40
+
+# Matrix Mulitplication with %*%
+## > x %*% y
+##      [,1] [,2]
+## [1,]   40   40
+## [2,]   60   60
