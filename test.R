@@ -118,3 +118,9 @@ paste0("test", 44)
 library(stringr);
 str_pad("tt", 6, pad = "0");
 # > [1] "0000tt"
+
+# call a function with a list of args
+do.call(what, args, quote = FALSE, envir = parent.frame())
+
+# merge a list of data frames together (same column)
+flattenedframes <- do.call(rbind, frames)
