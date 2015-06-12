@@ -124,3 +124,9 @@ do.call(what, args, quote = FALSE, envir = parent.frame())
 
 # merge a list of data frames together (same column)
 flattenedframes <- do.call(rbind, frames)
+
+# count complete cases
+sum(complete.cases(read.csv(file)));
+
+# files in dir
+filenames <- list.files(directory, pattern="*.*", full.names=TRUE)
