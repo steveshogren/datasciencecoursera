@@ -130,3 +130,17 @@ sum(complete.cases(read.csv(file)));
 
 # files in dir
 filenames <- list.files(directory, pattern="*.*", full.names=TRUE)
+
+# cast a list to a vector
+unlist()
+
+# build up a vector iteratively
+r <- vector()
+for(i in 1:10){
+  r <- c(r, i);
+}
+# > [1]  1  2  3  4  5  6  7  8  9 10
+
+# built up a vector immutably
+unlist(lapply(1:10, function(i){ i}));
+# > [1]  1  2  3  4  5  6  7  8  9 10
