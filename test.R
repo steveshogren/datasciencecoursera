@@ -144,3 +144,23 @@ for(i in 1:10){
 # built up a vector immutably
 unlist(lapply(1:10, function(i){ i}));
 # > [1]  1  2  3  4  5  6  7  8  9 10
+
+# lapply - apply fn to each element of list (casts to list)
+
+# mapply - apply a fn to each combination of elements
+noise <- function(n, mean, sd) {
+ rnorm(n, mean, sd)
+}
+noise(1:5, 1:5, 2)
+# > [1] 4.0662119 0.4171973 1.1779003 3.8094648 5.7379961
+# Noise only called once
+
+# for each row (1,1,2), (2,2,2), (3,3,2)
+mapply(noise, 1:5, 1:5, 2)
+
+# tapply - over subsets
+x <- c(rnorm(10), runif(10), rnorm(10, 1));
+f <- gl(3, 10)
+tapply(x, f, mean)
+# >          1           2           3 
+# > -0.02404061  0.33533057  1.30939699 
