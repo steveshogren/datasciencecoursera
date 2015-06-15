@@ -164,3 +164,35 @@ f <- gl(3, 10)
 tapply(x, f, mean)
 # >          1           2           3 
 # > -0.02404061  0.33533057  1.30939699 
+
+
+# split a vector into smaller vectors
+x <- c(rnorm(10), runif(10), rnorm(10, 1));
+f <- gl(3, 10);
+split(x, f)
+# returns 
+# > $`1`
+# >  [1] -3.0126578  0.3224711  2.0529302 -0.7029477 -0.8640036  2.1435211
+# >  [7]  0.4194318 -0.1063759 -1.3741493  0.3013996
+# > 
+# > $`2`
+# >  [1] 0.22261982 0.49628526 0.09854014 0.63240318 0.14016307 0.27188064
+# >  [7] 0.85112590 0.24971773 0.39618010 0.87275596
+# > 
+# > $`3`
+# >  [1]  1.9831870 -0.7730331  2.7567017 -0.1189265  1.4090016  0.2330963
+# >  [7]  0.6046267  2.6450705  2.4615725  3.4568594
+
+# average each group in a vector 
+lapply(split(x, f), mean)
+
+# grouping all rows in a dataframe by column value
+# then find the means of each column
+s <- split(airquality, airquality$Month)
+lapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
+ # or simplify and remove NA
+sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")],
+na.rm = TRUE))
+
+# put in a debug stop point on a function name
+debug(lm) 
