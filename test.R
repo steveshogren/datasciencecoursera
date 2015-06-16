@@ -196,3 +196,24 @@ na.rm = TRUE))
 
 # put in a debug stop point on a function name
 debug(lm) 
+
+# a data structure with a cached set of values
+makeVector <- function(x = numeric()) {
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setmean <- function(mean) m <<- mean
+        getmean <- function() m
+        list(set = set, get = get,
+             setmean = setmean,
+             getmean = getmean)
+}
+# access "fields"
+c$getmean()
+# NULL
+c$setmean(1);
+c$getmean()
+# [1] 1
