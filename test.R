@@ -183,7 +183,7 @@ split(x, f)
 # >  [1]  1.9831870 -0.7730331  2.7567017 -0.1189265  1.4090016  0.2330963
 # >  [7]  0.6046267  2.6450705  2.4615725  3.4568594
 
-# average each group in a vector 
+# mean each group in a vector 
 lapply(split(x, f), mean)
 
 # grouping all rows in a dataframe by column value
@@ -217,3 +217,22 @@ c$getmean()
 c$setmean(1);
 c$getmean()
 # [1] 1
+
+# a memo function to calc the mean if not already set
+cachemean <- function(x, ...) {
+        m <- x$getmean()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
+}
+
+# Finding mean of a column
+mean(a[which(a$Col1 == "test"), c("Col2")])
+
+# finding the mean of a grouping
+sapply(split(mtcars$mpg, mtcars$cyl), mean)
