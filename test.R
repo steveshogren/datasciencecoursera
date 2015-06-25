@@ -236,3 +236,7 @@ mean(a[which(a$Col1 == "test"), c("Col2")])
 
 # finding the mean of a grouping
 sapply(split(mtcars$mpg, mtcars$cyl), mean)
+
+# coerce a column in a read in data-set
+outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+outcome[, 11] <- as.numeric(outcome[, 11])
