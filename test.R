@@ -240,3 +240,12 @@ sapply(split(mtcars$mpg, mtcars$cyl), mean)
 # coerce a column in a read in data-set
 outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
 outcome[, 11] <- as.numeric(outcome[, 11])
+
+# Making a plot of the two langs
+setwd("/home/jack/programming/datasciencecoursera")
+jpeg('rplot.jpg')
+old <- c(31, 100, 56, 0);
+new <- c(46, 100, 55, 0);
+plot(old, type="o", col="blue");
+lines(new, type="o", pch=22, lty=2, col="red");
+dev.off()
