@@ -251,10 +251,6 @@ normalize <- function(x) {
     return ((x - min(x)) / (max(x) - min(x)))
   }
 
-old <- c(31, 100, 56, 0);
-new <- c(46, 100, 55, 0);
-
-
 chartit <-  function(df){
   plot(df$old, type="o", col="blue", axes=FALSE, ann=FALSE);
   lines(df$new, type="o", pch=22, lty=2, col="red");
@@ -262,7 +258,7 @@ chartit <-  function(df){
   box()
   title(xlab="Language", col.lab=rgb(0,0,0))
   title(ylab="Score Magnitude", col.lab=rgb(0,0, 0))
-  legend(1, 1, c("old model","new model"), cex=0.8,
+  legend("topright", NULL, c("overfitted model","simpler model"), cex=0.8,
          col=c("blue","red"), pch=21:22, lty=1:2);
 }
 
@@ -271,4 +267,9 @@ newscores <- c(2, 8, 3, -3, -2);
 
 df <- data.frame( "old" = oldscores, "new" = newscores, stringsAsFactors = FALSE)
 dfNorm <- as.data.frame(lapply(df, normalize))
+
+setwd("/home/jack/programming/datasciencecoursera")
+jpeg('rplot.jpg')
 chartit(dfNorm)
+dev.off()
+
