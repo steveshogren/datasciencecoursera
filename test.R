@@ -20,13 +20,13 @@ heisenbeg <- read.csv(file="simple.csv",head=TRUE,sep=",")
 # > names(heisenbeg)
 # [1] "trial"    "mass"     "velocity"
 # > summary(heisenbeg)
-#  trial      mass          velocity    
-#  A:3   Min.   : 5.00   Min.   : 8.00  
-#  B:3   1st Qu.: 6.25   1st Qu.:10.25  
-#        Median : 8.50   Median :11.50  
-#        Mean   : 8.25   Mean   :11.33  
-#        3rd Qu.:10.38   3rd Qu.:12.75  
-#        Max.   :11.00   Max.   :14.00  
+#  trial      mass          velocity
+#  A:3   Min.   : 5.00   Min.   : 8.00
+#  B:3   1st Qu.: 6.25   1st Qu.:10.25
+#        Median : 8.50   Median :11.50
+#        Mean   : 8.25   Mean   :11.33
+#        3rd Qu.:10.38   3rd Qu.:12.75
+#        Max.   :11.00   Max.   :14.00
 
 x <- matrix(1:4, 2, 2); y <- matrix(rep(10, 4), 2, 2)
 ## > x
@@ -51,7 +51,7 @@ x <- matrix(1:4, 2, 2); y <- matrix(rep(10, 4), 2, 2)
 # [2,]   60   60
 
 x <- c(1,3, 5) ; y <- c(3, 2, 10)
- 
+
 ## > x
 ## [1] 1 3 5
 ## > y
@@ -63,7 +63,7 @@ x <- c(1,3, 5) ; y <- c(3, 2, 10)
 ## [2,] 3  2
 ## [3,] 5 10
 
-# Removing matching elements 
+# Removing matching elements
 x <- c(8, 4, 1, 10, 12, 10)
 ## > x
 ## [1]  8  4  1 10 12 10
@@ -75,7 +75,7 @@ x <- file("data.csv")
 d <- read.csv(x)
 
 # First 4 rows of a data frame
-# > d[1:4,] 
+# > d[1:4,]
 
 # Last 4 rows of a data frame
 # > tail(d, 4)
@@ -110,7 +110,7 @@ fortys <- d[good,][,1] == 40
 # filtering out rows on mult criteria
 d[which(d$Col1 == 80 & d$Col2 < 0),]
 
-# concat strings and merge 
+# concat strings and merge
 paste0("test", 44)
 # > [1] "test44"
 
@@ -162,28 +162,28 @@ mapply(noise, 1:5, 1:5, 2)
 x <- c(rnorm(10), runif(10), rnorm(10, 1));
 f <- gl(3, 10)
 tapply(x, f, mean)
-# >          1           2           3 
-# > -0.02404061  0.33533057  1.30939699 
+# >          1           2           3
+# > -0.02404061  0.33533057  1.30939699
 
 
 # split a vector into smaller vectors
 x <- c(rnorm(10), runif(10), rnorm(10, 1));
 f <- gl(3, 10);
 split(x, f)
-# returns 
+# returns
 # > $`1`
 # >  [1] -3.0126578  0.3224711  2.0529302 -0.7029477 -0.8640036  2.1435211
 # >  [7]  0.4194318 -0.1063759 -1.3741493  0.3013996
-# > 
+# >
 # > $`2`
 # >  [1] 0.22261982 0.49628526 0.09854014 0.63240318 0.14016307 0.27188064
 # >  [7] 0.85112590 0.24971773 0.39618010 0.87275596
-# > 
+# >
 # > $`3`
 # >  [1]  1.9831870 -0.7730331  2.7567017 -0.1189265  1.4090016  0.2330963
 # >  [7]  0.6046267  2.6450705  2.4615725  3.4568594
 
-# mean each group in a vector 
+# mean each group in a vector
 lapply(split(x, f), mean)
 
 # grouping all rows in a dataframe by column value
@@ -195,7 +195,7 @@ sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")],
 na.rm = TRUE))
 
 # put in a debug stop point on a function name
-debug(lm) 
+debug(lm)
 
 # a data structure with a cached set of values
 makeVector <- function(x = numeric()) {
