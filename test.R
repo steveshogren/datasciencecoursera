@@ -259,11 +259,10 @@ chartit <-  function(df){
   plot(df$old, type="o", col="blue", axes=FALSE, ann=FALSE);
   lines(df$new, type="o", pch=22, lty=2, col="red");
   axis(1, at=1:5, lab=c("C#","F#","Clojure","Javascript", "Coffeescript"))
-  ## axis(2, las=1, at=c(0,25,50,75,100))
   box()
   title(xlab="Language", col.lab=rgb(0,0,0))
   title(ylab="Score Magnitude", col.lab=rgb(0,0, 0))
-  legend(1, 100, c("old model","new model"), cex=0.8,
+  legend(1, 1, c("old model","new model"), cex=0.8,
          col=c("blue","red"), pch=21:22, lty=1:2);
 }
 
