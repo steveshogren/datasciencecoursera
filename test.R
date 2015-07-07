@@ -244,8 +244,19 @@ outcome[, 11] <- as.numeric(outcome[, 11])
 # Making a plot of the two langs
 setwd("/home/jack/programming/datasciencecoursera")
 jpeg('rplot.jpg')
+
 old <- c(31, 100, 56, 0);
 new <- c(46, 100, 55, 0);
-plot(old, type="o", col="blue");
+plot(old, type="o", col="blue", axes=FALSE, ann=FALSE);
 lines(new, type="o", pch=22, lty=2, col="red");
+axis(1, at=1:4, lab=c("C#","F#","Clojure","Javascript"))
+axis(2, las=1, at=c(0,25,50,75,100))
+box()
+title(xlab="Language", col.lab=rgb(0,0,0))
+title(ylab="Score Magnitude", col.lab=rgb(0,0, 0))
+## legend(1, g_range[2], c("old model","new model"), cex=0.8, 
+##    col=c("blue","red"), pch=21:22, lty=1:2);
+legend(1, 100, c("old model","new model"), cex=0.8, 
+   col=c("blue","red"), pch=21:22, lty=1:2);
+
 dev.off()
